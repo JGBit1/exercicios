@@ -1,0 +1,71 @@
+while True:
+    print('Seja Bem vindo ao nosso banco!')
+    saber=int(input('Tem alguém atrás de você na fila para o banco?[1=sim]'))
+    save=open('save.txt','a')
+    nome=input('Com quem estamos trabalhando?')
+    valor=int(input('Qual o valor?'))
+    valorstr=str(valor)
+    save.write('-'*20+'\n')
+    save.write(nome + '\n')
+    save.write('Valor que o cliente retirou:\n')
+    save.write(valorstr + '\n')
+
+
+    def saque(valor):
+        cemreais = 0
+        cinquentareais = 0
+        vintereais = 0
+        dezreais = 0
+        cincoreais = 0
+        umreal = 0
+        if valor>=100:
+            cemreais =  valor // 100
+            resto =  valor - (cemreais*100)
+            saque(resto)
+                
+        elif valor >= 50:
+            cinquentareais = valor // 50
+            resto = valor - (cinquentareais*50)
+            saque(resto)
+
+        elif valor >= 20:
+            vintereais = valor // 20
+            resto = valor - (vintereais*20)
+            saque(resto)
+
+        elif valor >=10:
+            dezreais = valor // 10
+            resto = valor - (dezreais*10)
+            saque(resto)
+                
+        elif valor >=5:
+            cincoreais =  valor // 5
+            resto = valor - (cincoreais*5)
+            saque(resto)
+
+        elif valor >=1:
+            umreal = valor
+
+        return cemreais,cinquentareais,vintereais,dezreais,cincoreais,umreal
+
+    print('BANCO')
+    cemreais,cinquentareais,vintereais,dezreais,cincoreais,umreal = saque(valor)
+    print('Seja Bem vindo,{}'.format(nome))
+    print('Você vai receber {} notas de 100,{} notas de 50,{} notas de 20, {} notas de 10,{} notas de 5,e {} moedas de 1 real'.format(cemreais,cinquentareais,vintereais,dezreais,cincoreais,umreal))
+    cemreaisz=str(cemreais)
+    cinquentareaisz=str(cinquentareais)
+    vintereaisz=str(vintereais)
+    dezreaisz=str(dezreais)
+    cincoreaisz=str(cincoreais)
+    umrealz=str(umreal)
+    save.write('Notas de cem:' + cemreaisz + '\n' + 'Notas de cinquenta:' + cinquentareaisz + '\n' + 'Notas de vinte:' + vintereaisz + '\n' + 'notas de dez:' + dezreaisz + '\n' +'Notas de Cinco:' + cincoreaisz + '\n' + 'Moedas de um real' + umrealz + '\n')
+    save.close()
+    if saber!=1:
+        print('Tenha um bom dia')
+        break
+
+
+        
+    
+    
+
