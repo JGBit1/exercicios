@@ -1,0 +1,28 @@
+def tamanho_preco(valor,c=0):
+    print('Bom dia\nTemos a porção pequena(8R$),A média(10R$),A grande(12R$)')
+    tamanho=int(input('Digite de acordo com sua escolha:\nPorção Pequena:[1]\nPorção Média:[2]\nPorção Grande:[3]'))
+    quantidade=int(input('Quantas porções você deseja?'))
+    if tamanho==1:
+        print('Você escolheu a porção pequena,obrigado')
+        c=c+1
+        calculo=quantidade*8*c
+        troco=valor-calculo
+    elif tamanho==2:
+        print('Você escolheu a porção média,obrigado')
+        c = c + 1
+        calculo=quantidade*10*c
+        troco=valor-calculo
+    elif tamanho==3:
+        print('Você escolheu a porção grande,obrigado')
+        c = c + 1
+        calculo=quantidade*12*c
+        troco=valor-calculo
+    else:
+        print('Você digitou um valor inválido,iremos te redirecionar novamente')
+        return tamanho_preco(valor)
+    perguntinha=int(input('Deseja pedir mais algo?[1-SIM][2-NÃO]'))
+    if perguntinha==1:
+        return tamanho_preco(valor)
+    else:
+        print('O valor total foi {},e seu troco é {}'.format(calculo,troco))
+        return troco
