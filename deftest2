@@ -1,0 +1,38 @@
+#test3
+valor=int(input('Valor que o cliente deu:' ))
+def calculo(valor,c=0):
+    while True:
+        print('Os valores são pequena=8R$;média=10R$;grande=12R$')
+        opcao=int(input('Qual a escolha do cliente?[1-peq][2-méd][3-gran]'))
+        q=int(input('Qual a quantidade desejada?'))
+        if opcao==1:
+            c=c+1
+            calculo1=8*q*c
+            troco1=valor-calculo1
+            return calculo(calculo1,troco1,c,q)
+        elif opcao==2:
+            c=c+1
+            calculo2=10*q*c
+            troco2=valor-calculo2
+            return calculo(calculo2,troco2,c,q)
+        elif opcao==3:
+            c=c+1
+            calculo3=12*q*c
+            troco3=valor-calculo3
+            return calculo(calculo3,troco3,c,q)
+        else:
+            print('Valor incorreto,reiniciando sistema de calculos')
+            return calculo(valor,c=0)
+        perguntinha=int(input('Tem mais pedidos?[1-sim][2-não]'))
+        if perguntinha==1:
+            print('OK')
+        elif perguntinha==2:
+            calculotot=calculo1+calculo2+calculo3
+            trocotot=troco1+troco2+troco3
+            print('O custo foi {} e o troco {}'.format(calculotot,trocotot))
+            return calculotot,valortot,calculo1,calculo2,calculo3,c,q
+            break
+        else:
+            print('valor incorreto,reiniciando sistema de calculos')
+            return calculo(valor,c=0)
+calculotot,trocotot=calculo(valor,c=0)
